@@ -63,6 +63,9 @@ time_ts = ts(time_no_otlr$SPC,start = c(2012), frequency = 1 )
 # Plotting SPC Time Series
 autoplot(time_ts)
 
+# Get auto p,q,d values 
+auto.arima(time_ts)
+
 # ADF test
 adf.test(time_ts, k = 1)
 
@@ -78,6 +81,10 @@ Pacf(time_ts_d1)
 
 # Obtaining q {MA or Moving Average} value by using ACF plot, here [q = 1 ]
 Acf(time_ts_d1)
+
+# Get auto p,q,d valeues
+auto.arima(time_ts_d1)
+
 
 # Fitting ARIMA(1,1,1)
 time_Mod = Arima(y = time_ts, order = c(1,1,1))
